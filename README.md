@@ -5,6 +5,6 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 ## 1.Windows
 
 - [x] create window
-- [ ] window state
-- [ ] window event
-- [ ] frameless window
+- [x] manage window state
+- [ ] window events
+- [ ] create frameless window
