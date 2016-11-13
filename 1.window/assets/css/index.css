@@ -1,3 +1,6 @@
+
+/* Button */
+
 .demo-button {
   align-self: flex-start;
   margin-right: 1em;
@@ -50,4 +53,15 @@ pre > .hljs {
 
 kbd {
   padding: 0.5em;
+}
+
+/* Controls */
+
+.disappear {
+  opacity: 0;
+}
+
+.smooth-appear {
+  opacity: 1;
+  transition: opacity .5s ease-in-out;
 }
