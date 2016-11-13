@@ -32,7 +32,7 @@ ws_btn.addEventListener('click', function () {
 
 // 3.window-event
 var we_btn = document.querySelector('.window-event-button');
-var focusModalBtn = document.querySelector('.focus-on-button');
+var focus_btn = document.querySelector('.focus-on-button');
 we_btn.addEventListener('click', function () {
 	const modalPath = path.join(`file://${__dirname}/index.html`)
   let win = new BrowserWindow({ width: 600, height: 400 })
@@ -46,14 +46,25 @@ we_btn.addEventListener('click', function () {
   win.show()
   function showFocusBtn (btn) {
     if (!win) return
-    focusModalBtn.classList.add('smooth-appear')
-    focusModalBtn.classList.remove('disappear')
-    focusModalBtn.addEventListener('click', function () { win.focus() })
+    focus_btn.classList.add('smooth-appear')
+    focus_btn.classList.remove('disappear')
+    focus_btn.addEventListener('click', function () { win.focus() })
   }
   function hideFocusBtn () {
-    focusModalBtn.classList.add('disappear')
-    focusModalBtn.classList.remove('smooth-appear')
+    focus_btn.classList.add('disappear')
+    focus_btn.classList.remove('smooth-appear')
   }
+});
+
+
+// 4.frameless-window
+var fw_btn = document.querySelector('.frameless-window-button');
+fw_btn.addEventListener('click', function () {
+	const modalPath = path.join(`file://${__dirname}/index.html`)
+	let win = new BrowserWindow({ width: 400, height: 320, frame: false })
+	win.on('close', function () { win = null })
+	win.loadURL(modalPath)
+	win.show()
 });
 
 // highlight code block
