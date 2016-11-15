@@ -8,9 +8,11 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 - [x] manage window state
 - [x] window events
 - [x] create frameless window
-- [ ] process crash relaunch
-- [ ] process lang relaunch
+- [X] process crash relaunch
+- [X] process lang relaunch
 
 ## 2.Menus
 
-- [ ]
+- [ ] application menu
+- [ ] context menu
+- [ ] keyboard shortcut
