@@ -1,0 +1,15 @@
+{
+  "name": "window-demo",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ --platform=darwin --out ~/Desktop/Deskapp --version 1.4.3 --overwrite"
+  },
+  "dependencies": {
+    "electron-json-storage": "^2.0.3",
+    "electron-shortcut-normalizer": "^1.0.0",
+    "highlight.js": "^9.8.0",
+    "request": "^2.78.0"
+  }
+}

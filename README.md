@@ -7,4 +7,10 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 - [x] create window
 - [x] manage window state
 - [x] window events
-- [ ] create frameless window
+- [x] create frameless window
+- [ ] process crash relaunch
+- [ ] process lang relaunch
+
+## 2.Menus
+
+- [ ]
