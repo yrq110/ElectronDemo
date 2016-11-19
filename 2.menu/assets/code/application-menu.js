@@ -1,31 +1,7 @@
-
-'use strict';
-
-// const {app, BrowserWindow} = require('electron')
-const path = require('path')
 const electron = require('electron')
 const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
 const app = electron.app
-const MenuItem = electron.MenuItem
-const ipc = electron.ipcMain
-const dialog = electron.dialog
-const globalShortcut = electron.globalShortcut
-
-let mainWin
-
-function creatWindow() {
-  mainWin = new BrowserWindow({width: 800, height: 600, backgroundColor: '#dcf6f5', resizable: false})
-
-  mainWin.loadURL(`file://${__dirname}/index.html`)
-
-  mainWin.webContents.openDevTools()
-
-  mainWin.on('closed', () => {
-    mainWin = null
-  })
-}
-
 
 let template = [{
   label: 'Edit',
@@ -253,57 +229,17 @@ if (process.platform === 'win32') {
   addUpdateMenuItems(helpMenu, 0)
 }
 
-const menu = new Menu()
-menu.append(new MenuItem({ label: 'Hello World' }))
-menu.append(new MenuItem({ label: 'coffee~' }))
-menu.append(new MenuItem({ type: 'separator' }))
-menu.append(new MenuItem({ label: 'Electron', type: 'checkbox', checked: true }))
-
-app.on('browser-window-created', function (event, win) {
-  win.webContents.on('context-menu', function (e, params) {
-    menu.popup(win, params.x, params.y)
-  })
-})
-
-ipc.on('show-context-menu', function (event) {
-  const win = BrowserWindow.fromWebContents(event.sender)
-  menu.popup(win)
-})
-
-
 app.on('ready', function () {
-
-  // create window
-  creatWindow()
-
-  // init menu
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
-
-  // register shortcut
-  globalShortcut.register('CommandOrControl+Alt+J', function () {
-    dialog.showMessageBox({
-      type: 'info',
-      message: 'Success!',
-      detail: 'You pressed the registered global shortcut keybinding.',
-      buttons: ['OK']
-    })
-  })
-
 })
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+app.on('browser-window-created', function () {
+  let reopenMenuItem = findReopenMenuItem()
+  if (reopenMenuItem) reopenMenuItem.enabled = false
 })
 
-app.on('will-quit', function () {
-  globalShortcut.unregisterAll()
-})
-
-app.on('activate', () => {
-  if (mainWin === null) {
-    creatWindow()
-  }
+app.on('window-all-closed', function () {
+  let reopenMenuItem = findReopenMenuItem()
+  if (reopenMenuItem) reopenMenuItem.enabled = true
 })

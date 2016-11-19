@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>WindowDemo</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+  </head>
+  <body>
+    <div class="demo">
+      <h1>Application Menu</h1>
+      <p>Use Menu and MenuItem module</p>
+			<p>Click 'View' -> 'App Menu Demo' to see an information box.</p>
+			<p>Main Process</p>
+      <pre><code data-path="assets/code/application-menu.js"></code></pre>
+    </div>
+		<div class="demo">
+      <h1>Context Menu</h1>
+      <p>    Right-click to show context menu,created by Menu and MenuItem module and showed by ipcRenderer</p>
+			<p>Main Process</p>
+      <pre><code data-path="assets/code/context-menu-main.js"></code></pre>
+			<p>Render Process</p>
+      <pre><code data-path="assets/code/context-menu-render.js"></code></pre>
+    </div>
+		<div class="demo">
+      <h1>Global Keyboard Shortcut</h1>
+			<p>Main Process</p>
+      <pre><code data-path="assets/code/global-keyboard-shortcut.js"></code></pre>
+    </div>
+  </body>
+  <script>
+    require('./index')
+  </script>
+</html>

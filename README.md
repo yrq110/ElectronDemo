@@ -13,6 +13,6 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 
 ## 2.Menus
 
-- [ ] application menu
-- [ ] context menu
-- [ ] keyboard shortcut
+- [x] application menu
+- [x] context menu
+- [x] global keyboard shortcut
