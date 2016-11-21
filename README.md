@@ -16,3 +16,11 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 - [x] application menu
 - [x] context menu
 - [x] global keyboard shortcut
+
+## 3.UI
+- [x] open file manager
+- [ ] open external links
+- [ ] open file or directory
+- [ ] error dialog
+- [ ] information dialog
+- [ ] save dialog
