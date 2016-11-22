@@ -14,7 +14,11 @@ fileManagerBtn.addEventListener('click', function () {
 });
 
 // 2. open external links
+var exLinksBtn = document.querySelector('.open-external-links')
 
+exLinksBtn.addEventListener('click', function (event) {
+  shell.openExternal('https://www.baidu.com/')
+})
 
 // 3. open file or directory
 

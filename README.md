@@ -19,7 +19,7 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 
 ## 3.UI
 - [x] open file manager
-- [ ] open external links
+- [x] open external links
 - [ ] open file or directory
 - [ ] error dialog
 - [ ] information dialog
