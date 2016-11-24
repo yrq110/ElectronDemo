@@ -21,10 +21,22 @@ exLinksBtn.addEventListener('click', function (event) {
 })
 
 // 3. open file or directory
+var selectDirBtn = document.querySelector('.open-file-directory')
 
+selectDirBtn.addEventListener('click', function (event) {
+  ipc.send('open-file-dialog')
+})
+
+ipc.on('selected-directory', function (event, path) {
+  document.getElementById('selected-file').innerHTML = `You selected: ${path}`
+})
 
 // 4. error dialog
+var errorBtn = document.querySelector('.error-dialog')
 
+errorBtn.addEventListener('click', function (event) {
+  ipc.send('open-error-dialog')
+})
 
 // 5. information dialog
 
