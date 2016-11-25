@@ -39,9 +39,31 @@ errorBtn.addEventListener('click', function (event) {
 })
 
 // 5. information dialog
+var informationBtn = document.querySelector('.information-dialog')
 
+informationBtn.addEventListener('click', function (event) {
+  ipc.send('open-information-dialog')
+})
+
+ipc.on('information-dialog-selection', function (event, index) {
+  let message = 'You selected '
+  if (index === 0) message += 'yes.'
+  else message += 'no.'
+  document.getElementById('info-selection').innerHTML = message
+})
 
 // 6. save dialog
+var saveBtn = document.querySelector('.save-dialog')
+
+saveBtn.addEventListener('click', function (event) {
+  ipc.send('save-dialog')
+})
+
+ipc.on('saved-file', function (event, path) {
+  if (!path) path = 'No path'
+  document.getElementById('file-saved').innerHTML = `Path selected: ${path}`
+})
+
 
 // highlight code block
 const codeBlocksWithPaths = document.querySelectorAll('code[data-path]')

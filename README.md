@@ -22,5 +22,6 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 - [x] open external links
 - [x] open file or directory
 - [x] error dialog
-- [ ] information dialog
-- [ ] save dialog
+- [x] information dialog
+- [x] save dialog
+- [ ] tray

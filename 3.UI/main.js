@@ -44,3 +44,27 @@ ipc.on('open-file-dialog', function (event) {
 ipc.on('open-error-dialog', function (event) {
   dialog.showErrorBox('An Error Message', 'Demonstrating an error message.')
 })
+
+ipc.on('open-information-dialog', function (event) {
+  const options = {
+    type: 'info',
+    title: 'Information',
+    message: "This is an information dialog. Isn't it nice?",
+    buttons: ['Yes', 'No']
+  }
+  dialog.showMessageBox(options, function (index) {
+    event.sender.send('information-dialog-selection', index)
+  })
+})
+
+ipc.on('save-dialog', function (event) {
+  const options = {
+    title: 'Save an Image',
+    filters: [
+      { name: 'Images', extensions: ['jpg', 'png', 'gif'] }
+    ]
+  }
+  dialog.showSaveDialog(options, function (filename) {
+    event.sender.send('saved-file', filename)
+  })
+})
