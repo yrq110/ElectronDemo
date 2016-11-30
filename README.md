@@ -24,4 +24,4 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 - [x] error dialog
 - [x] information dialog
 - [x] save dialog
-- [ ] tray
+- [x] tray
