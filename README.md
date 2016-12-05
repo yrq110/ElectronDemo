@@ -25,3 +25,10 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 - [x] information dialog
 - [x] save dialog
 - [x] tray
+
+## 4.Communication
+- [x] asynchronous message
+- [x] synchronous message
+- [ ] communicate with a invisible window
+
+## 5.System

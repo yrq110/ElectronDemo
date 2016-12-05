@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>WindowDemo</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+  </head>
+  <body>
+    <div class="demo">
+      <h1>Asynchronous Message</h1>
+      <button class="demo-button asynchronous-message">View Demo</button>
+      <p id="async-reply"></p>
+      <p>Main Process</p>
+      <pre><code data-path="assets/code/asynchronous-message-main.js"></code></pre>
+      <p>Renderer Process</p>
+      <pre><code data-path="assets/code/asynchronous-message-render.js"></code></pre>
+    </div>
+    <div class="demo">
+      <h1>Synchronous Message</h1>
+      <button class="demo-button synchronous-message">View Demo</button>
+      <p id="sync-reply"></p>
+      <p>Main Process</p>
+      <pre><code data-path="assets/code/synchronous-message-main.js"></code></pre>
+      <p>Renderer Process</p>
+      <pre><code data-path="assets/code/synchronous-message-render.js"></code></pre>
+    </div>
+    <div class="demo">
+      <h1>Communicate with a invisible Window</h1>
+      <button class="demo-button open-file-directory">View Demo</button>
+      <p id="selected-file"></p>
+      <p>Main Process</p>
+
+      <p>Renderer Process</p>
+
+    </div>
+
+  </body>
+  <script>
+    require('./index')
+  </script>
+</html>
