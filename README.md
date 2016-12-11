@@ -29,6 +29,13 @@ try electron demos following [electron-api-demos](https://github.com/electron/el
 ## 4.Communication
 - [x] asynchronous message
 - [x] synchronous message
-- [ ] communicate with a invisible window
+- [x] communicate with a invisible window
 
 ## 5.System
+- [ ] get app and user information
+- [ ] clipboard
+- [ ] protocol handler
+
+## 6.Media
+- [ ] print to PDF
+- [ ] screenshot

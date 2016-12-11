@@ -23,6 +23,28 @@ syncMsgBtn.addEventListener('click', function () {
   document.getElementById('sync-reply').innerHTML = message
 })
 
+// 3. communicate with a invisible window
+var invisMsgBtn = document.querySelector('.invis-message')
+var invisReply = document.querySelector('#invis-reply')
+
+invisMsgBtn.addEventListener('click', function (clickEvent) {
+  const windowID = BrowserWindow.getFocusedWindow().id
+  const invisPath = 'file://' + path.join(__dirname+'/index.html')
+  console.log(invisPath)
+  let win = new BrowserWindow({ width: 400, height: 400, show: false })
+  win.loadURL(invisPath)
+
+  win.webContents.on('did-finish-load', function () {
+    const input = 100
+    win.webContents.send('compute-factorial', input, windowID)
+  })
+})
+
+ipc.on('factorial-computed', function (event, input, output) {
+  const message = `The factorial of ${input} is ${output}`
+  invisReply.textContent = message
+})
+
 // highlight code block
 const codeBlocksWithPaths = document.querySelectorAll('code[data-path]')
 

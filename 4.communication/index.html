@@ -26,16 +26,32 @@
     </div>
     <div class="demo">
       <h1>Communicate with a invisible Window</h1>
-      <button class="demo-button open-file-directory">View Demo</button>
-      <p id="selected-file"></p>
-      <p>Main Process</p>
-
+      <button class="demo-button invis-message">View Demo</button>
+      <p id="invis-reply"></p>
+      <p>Invisible Window Page HTML</p>
+      <pre><code data-path="assets/code/invisible-window-html.js"></code></pre>
       <p>Renderer Process</p>
-
+      <pre><code data-path="assets/code/invisible-window-render.js"></code></pre>
     </div>
 
   </body>
   <script>
     require('./index')
+  </script>
+  <script type="text/javascript">
+    const ipc = require('electron').ipcRenderer
+    const BrowserWindow = require('electron').remote.BrowserWindow
+
+    ipc.on('compute-factorial', function (event, number, fromWindowId) {
+      const result = factorial(number)
+      const fromWindow = BrowserWindow.fromId(fromWindowId)
+      fromWindow.webContents.send('factorial-computed', number, result)
+      window.close()
+    })
+
+    function factorial (num) {
+      if (num === 0) return 1
+      return num * factorial(num - 1)
+    }
   </script>
 </html>
